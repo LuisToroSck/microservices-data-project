@@ -1,0 +1,42 @@
+server:
+  port: 8082 #le puse 8082 pq el 8080 está en jenkins
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      default-zone: http://localhost:8761/eureka
+  instance:
+    hostname: localhost
+
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: autorizacion-service
+          uri: lb://autorizacion-service
+          predicates:
+            - Path=/autorizacion/**
+        - id: datareloj-service
+          uri: lb://datareloj-service
+          predicates:
+            - Path=/datareloj/**
+        - id: empleado-service
+          uri: lb://empleado-service
+          predicates:
+            - Path=/empleado/**
+        - id: justificativo-service
+          uri: lb://justificativo-service
+          predicates:
+            - Path=//justificativo/** 
+        - id: oficinaRRHH-service
+          uri: lb://oficinaRRHH-service
+          predicates:
+            - Path=//oficinaRRHH/**        
+        - id: sueldo-service
+          uri: lb://sueldo-service
+          predicates:
+            - Path=//sueldo/**                    
