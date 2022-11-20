@@ -1,6 +1,13 @@
+spring:
+  application:
+    name: eureka-service
 server:
   port: 8761
 eureka:
+  instance:
+    hostname: localhost
+  server:
+    waitTimeInMsWhenSyncEmpty: 0 # Tiempo de espera para proxima sincronización    
   client:
     fetch-registry: false
     register-with-eureka: false
