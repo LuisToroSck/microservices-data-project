@@ -1,6 +1,6 @@
 spring:
   application:
-    name: oficinarrhh-service
+    name: oficinaRRHH-service
 server:
   port: 8005
   forward-headers-strategy: framework
