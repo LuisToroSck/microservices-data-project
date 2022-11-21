@@ -28,7 +28,7 @@ spring:
         - id: oficinaRRHH-service
           uri: lb://oficinaRRHH-service
           predicates:
-            - Path=/oficinaRRHH/**        
+            - Path=/oficina/**        
         - id: sueldo-service
           uri: lb://sueldo-service
           predicates:
